@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Reference Bootstrap and local files -->
+	<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="icon" th:href="@{images/header/white-logo.png}">
+	<link rel="stylesheet" th:href="@{css/login-page.css}">
+
+	<title>Hotel Login</title>
+</head>
+
+<body>
+<h1 class="form-container">Add Room</h1>
+	<!-- registration Form -->
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form id="addRoom" name="addRoom" th:action="@{/addRoom}" th:object="${newRoom}" method="POST">
+				
+				
+				<!-- Password -->
+				<input id="number" name="number" type="text"
+					pattern="^\S{3,}$" placeholder="Room Number" required
+					th:field="*{number}" th:errorclass="fieldError"
+					onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 3 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" />
+
+				<div th:if="${#fields.hasErrors('number')}"
+					style="margin-bottom: 25px" class="text-danger">
+					<ul>
+						<li th:each="err : ${#fields.errors('number')}"
+							th:text="'Number :' + ${err}" />
+					</ul>
+				</div>
+
+				<button id="button" >Submit</button>
+			</form>
+		</div>
+
+
+
+		
+	</div>
+
+	<!-- Reference Javascript and local files -->
+	<script th:src="@{scripts/login-page.js}"></script>
+</body>
+
+</html>

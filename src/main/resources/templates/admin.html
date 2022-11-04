@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Reference Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Reference Bootstrap and local files -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" th:href="@{css/slick.css}">
+	<link rel="stylesheet" th:href="@{css/slick-theme.css}">
+	<link rel="stylesheet" th:href="@{css/home.css}">
+	<link rel="icon" th:href="@{images/header/white-logo.png}">
+
+	<title>Hotel Reservation</title>
+</head>
+<body>
+<section class="cover-main" id="home">
+<!-- Main buttons and title -->
+		<div>
+			<ul id="scene" data-invert-x="false" data-invert-y="false" data-scalar-x="7" data-scalar-y="7"
+				data-friction-x="0.1" data-friction-y="0.1" data-origin-x="0.5" data-origin-y="0.5">
+				<li class="layer name" data-depth="0.90">WELCOME TO INDEPENDENCE INN</li>
+				<li class="layer btn btn-main" data-depth="0.30"><a th:href="@{/all-rooms}"class="reservation-btn">View all Rooms</a> 
+				<a th:href="@{/all-reservations}" class="reservations-btn">View All Reservations</a>
+				<a th:href="@{/addRoom}" class="reservations-btn">Add Room</a> <br> 
+				<a th:href="@{/logout}" class="logout-btn">Sign Out</a>	</li>		
+				</ul>
+		</div>
+		</section>
+</body>
